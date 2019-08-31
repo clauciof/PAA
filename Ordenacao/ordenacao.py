@@ -6,6 +6,7 @@ import random
 def insertion_sort(vetor, tamanho, x):
     plt.show()
     for i in range(1, tamanho): 
+        #gráfico
         plt.title("Insertion Sort")  
         plt.grid(True)
         plt.plot(x,vetor, 'ro')
@@ -18,13 +19,13 @@ def insertion_sort(vetor, tamanho, x):
                 vetor[j] = vetor[j-1]
                 vetor[j-1] = aux
                 j = j - 1
-   
+    
+    #plota gráfico
     plt.title("Insertion Sort") 
     plt.grid(True)
     plt.plot(x,vetor, 'ro')
     plt.show()
-    
-        
+  
 
 def selection_sort(vetor, tamanho, x):
     plt.show()
@@ -49,14 +50,13 @@ def selection_sort(vetor, tamanho, x):
     plt.grid(True)
     plt.plot(x,vetor, 'ro')
     plt.show()
+
     
-
-
 def bubble_sort(vetor, tamanho, x):
-   
     plt.show()
     trocou = True
     while trocou:
+        #gráfico
         plt.title("Bubble Sort")
         plt.grid(True)
         plt.plot(x, vetor, 'ro')
@@ -69,6 +69,8 @@ def bubble_sort(vetor, tamanho, x):
                 vetor[i-1] = vetor[i]
                 vetor[i] = aux
                 trocou = True
+   
+    #plota gráfico
     plt.title("Bubble Sort")
     plt.grid(True)
     plt.plot(x, vetor, 'ro')
