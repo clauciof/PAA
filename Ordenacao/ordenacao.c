@@ -1,7 +1,11 @@
 #include <stdio.h>
-#define tamanho 9
+#include <stdlib.h>
+#include <string.h>
+#define tamanho 10
+#define tamanho2 5
 typedef int bool;
 enum { false, true };
+
 
 void insertion_sort(int V[], int size){
     printf("INSERTION SORT\n");
@@ -70,15 +74,63 @@ void bubble_sort(int V[], int size){
         printf("%d\n",V[k]);
         k++;
     }
-
-
 }
 
+void merge(int V[], int p, int m, int u){
+    int tam = u - p + 1;
+    int i=p, j=m+1, k=0;
+    int *w = malloc(tam*sizeof(int));
+    while (i<=m && j<=u){
+        if(V[i]<V[j]){
+            w[k] = V[i];
+            i++; k++;
+        }else{
+            w[k] = V[j];
+            k++; j++;
+        }
+    }
+    while (i<=m){
+        w[k] = V[i];
+        k++; i++;
+    }
+    while (j<=u){
+       w[k] = V[j];
+        k++; j++;
+    }
+    for(k=0;k<tam;k++)
+        V[p+k] = w[k];
+    free(w);   
+}
+
+void merge_sort(int V[], int p, int u){
+    if(p<u){
+        int q = (u + p) / 2; 
+        merge_sort(V,p,q);
+        merge_sort(V,q+1,u);
+        merge(V,p,q,u);
+    }
+}
+
+void quick_sort(){}
+
+
 int main(){
-    int vetor[tamanho] = {11,785,1,4,8, 6, 900, -30, -1};
-
-    insertion_sort(vetor, tamanho);
-    selection_sort(vetor, tamanho);
-    bubble_sort(vetor, tamanho);
-
+    int vetor[] = {32,785,1,4,8, 6, 900, -30,90,78};
+    int size = sizeof(vetor)/sizeof(vetor[0]);
+   // int vetor[] = {600, 9, 30, -1};
+   
+    //insertion_sort(vetor, tamanho);
+    //selection_sort(vetor, tamanho);
+    //bubble_sort(vetor, tamanho);
+    //merge_sort(vetor,0, size-1);
+    printf("%d", vetor[0]);
+    muda_vetor(vetor,1);
+    printf("%d", vetor[0]);
+    
+   
+   /* int i;
+    for(i=0;i<size;i++){
+        printf("%d ", vetor[i]);
+    }*/
+   
 }
